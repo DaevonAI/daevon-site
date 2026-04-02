@@ -1,36 +1,29 @@
+import { useState } from "react";
+
 export default function Waitlist() {
-    return (
-        <section style={{
-            padding: "100px 20px",
-            textAlign: "center",
-            background: "#111",
-            color: "#eee"
-        }}>
-            <h2>Join the waitlist</h2>
+  const [submitted, setSubmitted] = useState(false);
 
-            <form
-                name="waitlist"
-                method="POST"
-                data-netlify="true"
-            >
-                <input type="hidden" name="form-name" value="waitlist" />
+  if (submitted) {
+    return <p>Welcome to Daevon. We’ll reach out when we open early access.</p>;
+  }
 
-                <input
-                    type="email"
-                    name="email"
-                    placeholder="your@email.com"
-                    required
-                    style={{
-                        padding: "12px",
-                        margin: "10px",
-                        width: "250px"
-                    }}
-                />
+  return (
+    <form
+      name="waitlist"
+      method="POST"
+      data-netlify="true"
+      onSubmit={() => setSubmitted(true)}
+    >
+      <input type="hidden" name="form-name" value="waitlist" />
 
-                <button type="submit">
-                    Join
-                </button>
-            </form>
-        </section>
-    );
+      <input
+        type="email"
+        name="email"
+        placeholder="your@email.com"
+        required
+      />
+
+      <button type="submit">Join</button>
+    </form>
+  );
 }
