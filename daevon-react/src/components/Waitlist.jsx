@@ -12,10 +12,6 @@ export default function Waitlist() {
                 name="waitlist"
                 method="POST"
                 data-netlify="true"
-                onSubmit={(e) => {
-                    e.preventDefault();
-                    alert("Submitted (Netlify will capture this after deploy)");
-                }}
             >
                 <input type="hidden" name="form-name" value="waitlist" />
 
