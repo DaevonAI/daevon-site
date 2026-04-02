@@ -1,3 +1,5 @@
+import Waitlist from "./Waitlist";
+
 export default function Hero() {
     const handleWaitlist = () => {
         alert("Waitlist coming soon");
@@ -42,19 +44,7 @@ export default function Hero() {
                 detecting dependency violations, module boundary issues, and architectural drift before they become production problems.
             </p>
 
-            <button
-                onClick={handleWaitlist}
-                style={{
-                    background: "#c47a2c",
-                    border: "none",
-                    padding: "14px 32px",
-                    color: "#fff",
-                    cursor: "pointer",
-                    letterSpacing: "0.1em"
-                }}
-            >
-                REQUEST EARLY ACCESS
-            </button>
+            <Waitlist />
         </section>
     );
 }
