@@ -9,14 +9,15 @@ export default function Hero() {
         <section style={{
             padding: "140px 20px",
             textAlign: "center",
-            background: "#1a1a1a",
+            background: "#1A1510",
             color: "#f5f5f5"
         }}>
+            
             <p style={{
                 letterSpacing: "0.2em",
                 fontSize: "12px",
                 marginBottom: "20px",
-                color: "#aaa"
+                color: "#B84A28"
             }}>
                 DEVELOPMENT GOVERNANCE INFRASTRUCTURE
             </p>
@@ -25,11 +26,12 @@ export default function Hero() {
                 fontSize: "clamp(42px, 6vw, 80px)",
                 fontWeight: "300",
                 lineHeight: "1.1",
-                marginBottom: "30px"
+                marginBottom: "30px",
+                color: "#EEE0CC"
             }}>
                 Your Unreal project,
                 <br />
-                <span style={{ color: "#c47a2c" }}>
+                <span style={{ color: "#B84A28", fontStyle:"italic"}}>
                     structurally sound.
                 </span>
             </h1>

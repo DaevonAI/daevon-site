@@ -2,11 +2,11 @@ export default function Solution() {
     return (
         <section style={{
             padding: "100px 20px",
-            background: "#1a1a1a",
+            background: "#131008",
             color: "#eee",
             textAlign: "center"
         }}>
-            <h2 style={{ marginBottom: "20px" }}>
+            <h2 style={{ marginBottom: "20px", color: "#A09078" }}>
                 Daevon gives you structural clarity.
             </h2>
 
