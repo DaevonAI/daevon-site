@@ -19,6 +19,7 @@ export default function Footer() {
                 <p style={{ margin: "0 0 20px" }}>
                     <a href="/terms.html" style={linkStyle}>Terms of Service</a>
                     <a href="/privacy.html" style={linkStyle}>Privacy Policy</a>
+                    <a href="/refunds.html" style={linkStyle}>Refund Policy</a>
                     <a href="mailto:contact.daevonai@gmail.com" style={linkStyle}>Contact</a>
                 </p>
 
