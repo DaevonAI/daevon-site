@@ -11,8 +11,10 @@ export default function Solution() {
             </h2>
 
             <p style={{ maxWidth: "600px", margin: "0 auto 40px" }}>
-                Instead of guessing what’s wrong, Daevon builds a structural model
-                of your project and identifies issues before they break your workflow.
+                Instead of guessing, Daevon builds a structural model of your project
+                and shows you what it finds — what's there, how it connects, and where
+                the structural risks are. You decide what to do about it. Daevon never
+                changes your project without your explicit authority.
             </p>
 
             <div style={{
@@ -23,7 +25,7 @@ export default function Solution() {
             }}>
                 <div>Dependency Graph</div>
                 <div>Health Score</div>
-                <div>Rule Engine</div>
+                <div>Project Knowledge Core</div>
             </div>
         </section>
     );

@@ -1,10 +1,6 @@
 import Waitlist from "./Waitlist";
 
 export default function Hero() {
-    const handleWaitlist = () => {
-        alert("Waitlist coming soon");
-    };
-
     return (
         <section style={{
             padding: "140px 20px",
@@ -12,7 +8,7 @@ export default function Hero() {
             background: "#1A1510",
             color: "#f5f5f5"
         }}>
-            
+
             <p style={{
                 letterSpacing: "0.2em",
                 fontSize: "12px",
@@ -31,7 +27,7 @@ export default function Hero() {
             }}>
                 Your Unreal project,
                 <br />
-                <span style={{ color: "#B84A28", fontStyle:"italic"}}>
+                <span style={{ color: "#B84A28", fontStyle: "italic" }}>
                     structurally sound.
                 </span>
             </h1>
@@ -42,8 +38,10 @@ export default function Hero() {
                 lineHeight: "1.6",
                 color: "#bbb"
             }}>
-                Daevon audits the structural health of Unreal Engine projects —
-                detecting dependency violations, module boundary issues, and architectural drift before they become production problems.
+                Daevon analyzes your Unreal Engine project and builds a PKC — a working
+                model of how your modules, dependencies, and systems actually fit together.
+                From that model, it shows you your architecture as it really is, and where
+                it's drifting from what you intended.
             </p>
 
             <Waitlist />
