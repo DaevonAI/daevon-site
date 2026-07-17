@@ -10,11 +10,26 @@ export default function Solution() {
                 Daevon gives you structural clarity.
             </h2>
 
-            <p style={{ maxWidth: "600px", margin: "0 auto 40px" }}>
-                Instead of guessing, Daevon builds a structural model of your project
-                and shows you what it finds — what's there, how it connects, and where
-                the structural risks are. You decide what to do about it. Daevon never
-                changes your project without your explicit authority.
+            <p style={{ maxWidth: "600px", margin: "0 auto 6px" }}>
+                Instead of guessing, Daevon compares what your project declares its structure
+                should be against what your code actually does, and shows you where the two
+                disagree.
+            </p>
+
+            <p style={{
+                maxWidth: "600px",
+                margin: "0 auto 6px",
+                color: "#D9714A"
+            }}>
+                You decide what to do about it.
+            </p>
+
+            <p style={{
+                maxWidth: "600px",
+                margin: "0 auto 40px",
+                color: "#A09078"
+            }}>
+                Daevon does not.
             </p>
 
             <div style={{
@@ -25,7 +40,7 @@ export default function Solution() {
             }}>
                 <div>Dependency Graph</div>
                 <div>Health Score</div>
-                <div>Project Knowledge Core</div>
+                <div>Module Boundaries</div>
             </div>
         </section>
     );

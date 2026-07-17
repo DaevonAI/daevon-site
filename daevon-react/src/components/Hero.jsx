@@ -38,10 +38,7 @@ export default function Hero() {
                 lineHeight: "1.6",
                 color: "#bbb"
             }}>
-                Daevon analyzes your Unreal Engine project and builds a PKC — a working
-                model of how your modules, dependencies, and systems actually fit together.
-                From that model, it shows you your architecture as it really is, and where
-                it's drifting from what you intended.
+                Daevon reads your whole Unreal project and maps how every file, class, and module actually fits together. Daevon shows you where the structure is weak — before the whole project comes crashing down.
             </p>
 
             <Waitlist />
