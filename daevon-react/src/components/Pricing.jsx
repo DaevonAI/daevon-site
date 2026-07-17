@@ -159,7 +159,7 @@ export default function Pricing() {
                     label="off, while you stay subscribed"
                     drop="25%"
                     dropLabel="if you ever cancel"
-                    note="You keep your number and your slot. The rate never returns to 50%."
+                    note="You keep your Founder status and your slot. The rate never returns to 50%."
                 />
                 <Tier
                     name="Supporter"
