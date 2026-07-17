@@ -1,6 +1,7 @@
 import Hero from "./components/Hero";
 import Problem from "./components/Problem";
 import Solution from "./components/Solution";
+import Pricing from "./components/Pricing";
 import Footer from "./components/Footer";
 
 export default function App() {
@@ -9,6 +10,7 @@ export default function App() {
             <Hero />
             <Problem />
             <Solution />
+            <Pricing />
             <Footer />
         </>
     );
