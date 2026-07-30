@@ -99,8 +99,7 @@ export default function Pricing() {
             }}>
                 {[
                     ["Free", "Unlimited chat, health scoring, and memory querying. No card, no trial clock.", null],
-                    ["$5", "Everything free, plus a full structural analysis of your project every 60 days.", "/month"],
-                    ["$12", "A single analysis, no subscription. Unchanged project, cached result, no charge.", null]
+                    ["$5", "Everything free, plus a full structural analysis of your project every 60 days.", "/month"]
                 ].map(([price, blurb, suffix]) => (
                     <div key={price} style={{ minWidth: "200px", maxWidth: "240px" }}>
                         <p style={{ fontSize: "38px", color: C.text, margin: "0 0 8px", fontWeight: 300 }}>
@@ -156,7 +155,7 @@ export default function Pricing() {
                 color: C.dim,
                 lineHeight: "1.6"
             }}>
-                Founder and Supporter rates apply to subscriptions and standalone purchases alike.
+                Founder and Supporter rates apply to your Daevon subscription.
             </p>
 
             {/* ---- what happens at 1.0 ---- */}
