@@ -8,131 +8,46 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <style>
   :root {
-    --bg:      #1A1510;
-    --panel:   #131008;
-    --ink:     #d6cbbb;
-    --ink-str: #EEE0CC;
-    --accent:  #B84A28;
-    --rule:    #2f261d;
-    --serif:   Georgia, 'Times New Roman', Times, serif;
+    --bg:#1A1510; --panel:#131008; --ink:#d6cbbb; --ink-str:#EEE0CC;
+    --accent:#B84A28; --rule:#2f261d; --serif:Georgia,'Times New Roman',Times,serif;
   }
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--ink);
-    font-family: var(--serif);
-    font-size: 17px;
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-  }
-  .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px 96px; }
-
-  header.site {
-    border-bottom: 1px solid var(--rule);
-    margin-bottom: 56px;
-  }
-  header.site .wrap { padding-top: 28px; padding-bottom: 28px; }
-  .brand {
-    display: inline-block;
-    letter-spacing: 0.2em;
-    font-size: 11px;
-    text-transform: uppercase;
-    color: var(--accent);
-    text-decoration: none;
-  }
-  .brand:hover { color: var(--ink-str); }
-
-  h1 {
-    font-size: clamp(34px, 5vw, 52px);
-    font-weight: 300;
-    line-height: 1.15;
-    color: var(--ink-str);
-    margin: 0 0 8px;
-  }
-  .meta {
-    color: #8b8073;
-    font-size: 15px;
-    margin: 0 0 48px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid var(--rule);
-  }
-  .meta strong { color: var(--ink); font-weight: normal; }
-
-  h2 {
-    font-size: 25px;
-    font-weight: 400;
-    color: var(--ink-str);
-    margin: 56px 0 16px;
-    line-height: 1.3;
-  }
-  h3 {
-    font-size: 19px;
-    font-weight: 400;
-    color: var(--accent);
-    margin: 36px 0 12px;
-  }
-  p, li { margin: 0 0 18px; }
-  ul { padding-left: 22px; }
-  li { margin-bottom: 10px; }
-  strong { color: var(--ink-str); font-weight: 600; }
-  a { color: var(--accent); }
-  a:hover { color: var(--ink-str); }
-  code {
-    background: var(--panel);
-    border: 1px solid var(--rule);
-    border-radius: 3px;
-    padding: 1px 6px;
-    font-family: ui-monospace, Consolas, monospace;
-    font-size: 0.88em;
-    color: var(--ink-str);
-  }
-  hr { border: 0; border-top: 1px solid var(--rule); margin: 48px 0; }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 24px 0 32px;
-    font-size: 15px;
-    display: block;
-    overflow-x: auto;
-  }
-  th, td {
-    text-align: left;
-    padding: 11px 14px;
-    border-bottom: 1px solid var(--rule);
-    vertical-align: top;
-  }
-  th { color: var(--ink-str); font-weight: 600; white-space: nowrap; }
-
-  blockquote {
-    margin: 24px 0;
-    padding: 4px 0 4px 20px;
-    border-left: 2px solid var(--accent);
-    color: #a89b8b;
-  }
-
-  footer.site {
-    border-top: 1px solid var(--rule);
-    margin-top: 72px;
-    color: #6f6559;
-    font-size: 14px;
-  }
-  footer.site .wrap { padding-top: 28px; padding-bottom: 40px; }
-  footer.site a { color: #8b8073; text-decoration: none; margin-right: 20px; }
-  footer.site a:hover { color: var(--accent); }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--serif);
+    font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:720px;margin:0 auto;padding:0 24px 96px;}
+  header.site{border-bottom:1px solid var(--rule);margin-bottom:56px;}
+  header.site .wrap{padding-top:28px;padding-bottom:28px;}
+  .brand{display:inline-block;letter-spacing:0.2em;font-size:11px;text-transform:uppercase;
+    color:var(--accent);text-decoration:none;}
+  .brand:hover{color:var(--ink-str);}
+  h1{font-size:clamp(34px,5vw,52px);font-weight:300;line-height:1.15;color:var(--ink-str);margin:0 0 8px;}
+  .meta{color:#8b8073;font-size:15px;margin:0 0 48px;padding-bottom:24px;border-bottom:1px solid var(--rule);}
+  .meta strong{color:var(--ink);font-weight:normal;}
+  h2{font-size:25px;font-weight:400;color:var(--ink-str);margin:56px 0 16px;line-height:1.3;}
+  h3{font-size:19px;font-weight:400;color:var(--accent);margin:36px 0 12px;}
+  p,li{margin:0 0 18px;}
+  ul{padding-left:22px;} li{margin-bottom:10px;}
+  strong{color:var(--ink-str);font-weight:600;}
+  a{color:var(--accent);} a:hover{color:var(--ink-str);}
+  code{background:var(--panel);border:1px solid var(--rule);border-radius:3px;padding:1px 6px;
+    font-family:ui-monospace,Consolas,monospace;font-size:0.88em;color:var(--ink-str);}
+  hr{border:0;border-top:1px solid var(--rule);margin:48px 0;}
+  table{width:100%;border-collapse:collapse;margin:24px 0 32px;font-size:15px;display:block;overflow-x:auto;}
+  th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--rule);vertical-align:top;}
+  th{color:var(--ink-str);font-weight:600;white-space:nowrap;}
+  blockquote{margin:24px 0;padding:4px 0 4px 20px;border-left:2px solid var(--accent);color:#a89b8b;}
+  footer.site{border-top:1px solid var(--rule);margin-top:72px;color:#6f6559;font-size:14px;}
+  footer.site .wrap{padding-top:28px;padding-bottom:40px;}
+  footer.site a{color:#8b8073;text-decoration:none;margin-right:20px;}
+  footer.site a:hover{color:var(--accent);}
 </style>
 </head>
 <body>
-
-<header class="site">
-  <div class="wrap"><a class="brand" href="/">Daevon</a></div>
-</header>
-
+<header class="site"><div class="wrap"><a class="brand" href="/">Daevon</a></div></header>
 <main class="wrap">
 <h1>Terms of Service</h1>
-<p class="meta"><strong>Product:</strong>Daevon (alpha) · **Provider:** Daevon Systems LLC (&quot;we,&quot; &quot;us,&quot; &quot;our&quot;)<br /><strong>Effective date:</strong>July 15, 2026 · **Contact:** contact.daevonai@gmail.com</p>
+<p class="meta"><strong>Product:</strong>Daevon (alpha) · **Provider:** Daevon Systems LLC (&quot;we,&quot; &quot;us,&quot; &quot;our&quot;)<br /><strong>Effective date:</strong>July 30, 2026 · **Contact:** contact.daevonai@gmail.com</p>
 <p>By installing, activating, or using Daevon, you agree to these Terms. You will also be asked to
 acknowledge them when you first open the Daevon plugin. If you do not agree, do not use Daevon.</p>
 <h2>1. What Daevon is</h2>
@@ -191,22 +106,37 @@ the point of purchase. You can manage your subscription — view payments, downl
 update your payment method, and cancel — through <strong>Paddle's customer portal</strong>, which you access
 using the email address you purchased with. Refunds are handled by Paddle in accordance with
 their policies and any additional terms we state at purchase.</p>
+<h3>Founder and Supporter alpha discounts</h3>
+<p>During the alpha, we may offer limited Founder or Supporter discounts. These discounts affect
+<strong>pricing only.</strong> They do not provide different software capabilities, entitlement rights,
+support levels, or ownership rights — a Founder, Supporter, and Standard paid subscriber all
+receive the same Daevon features.</p>
+<p>Founder status is limited to the first 100 completed qualifying subscriptions, as determined by
+our hosted subscription records. Entering an email address or starting checkout does not reserve
+a Founder slot; Founder status is confirmed after checkout is completed and the subscription is
+created.</p>
+<p>Founder and Supporter discounts are offered as a positive alpha discount program. Discount
+availability, discount amounts, and eligibility are shown at the point of purchase and may change
+over time or be discontinued for future purchases or future subscription periods.</p>
+<p>Any discount that applies to your purchase is the one shown to you at the point of purchase. If a
+checkout or discount is applied incorrectly, we may correct it where permitted by law. Founder or
+Supporter status does not affect the features available to an active paid subscriber.</p>
 <h2>7. Activation tokens</h2>
 <p>When you subscribe, we issue an <strong>activation token</strong> that identifies your subscription.</p>
-<p><strong>Your token is displayed once, immediately after payment. Save it somewhere safe.</strong></p>
-<p><strong>If you lose it, contact us and we will re-issue it.</strong> You will not need to purchase again — we
-can identify your subscription through Paddle using the email address you bought with. This is a
-manual process during the alpha, so please allow us a little time.</p>
+<p>Your token is displayed immediately after payment and is also sent to the email address
+associated with your purchase. Save it somewhere safe.</p>
+<p>If you lose your token, you can request a resend using the activation-token resend option, or
+contact us at contact.daevonai@gmail.com. You will not need to purchase again if we can identify
+an eligible subscription associated with your email address.</p>
 <p><strong>Your token is a credential — treat it like a password.</strong> Anyone who holds it can use your
 access; it does not verify who is presenting it. Do not publish it, commit it to a repository,
-or share it. If your token is exposed, contact us and we will issue a replacement and retire
+or share it. If your token is exposed, contact us and we may issue a replacement and retire
 the old one.</p>
 <p>Each token activates Daevon on <strong>one machine</strong> during the alpha. Contact us if you need the
 binding released so you can move to a different machine.</p>
 <h2>8. Updates</h2>
 <p>Daevon does not automatically update itself during the alpha; you install new versions
-manually. Daevon does contact our hosted services to check your license, as described above.
-[Confirm this matches your build — if the client does auto-update, disclose it here instead.]</p>
+manually. Daevon does contact our hosted services to check your license, as described above.</p>
 <h2>9. Eligibility</h2>
 <p>Daevon is intended for <strong>adults</strong> and for professional, educational, or hobbyist software
 development. It is <strong>not directed to children under 13</strong>, and we do not knowingly permit their
@@ -237,8 +167,11 @@ attributions and license texts.</p>
 <p>We may update Daevon and these Terms during the alpha. Material changes will be shown by an
 updated effective date; continued use after a change means you accept the updated Terms.</p>
 <h2>16. Termination</h2>
-<p>We may suspend or end your access to the alpha at any time. Sections 3, 4, 5, 12, 13, and 14
-continue to apply after your access ends.</p>
+<p>We may suspend or end your access to the alpha if you violate these Terms, misuse Daevon,
+interfere with our services, create security or abuse risks, or if we discontinue the alpha. If we
+end paid access for reasons unrelated to your violation of these Terms, our Refund Policy may
+apply.</p>
+<p>Sections 3, 4, 5, 6, 12, 13, and 14 continue to apply after your access ends.</p>
 <h2>17. Governing law and contact</h2>
 <p>These Terms are governed by the laws of Colorado, United States, without regard to
 conflict-of-law rules. Questions or notices: contact.daevonai@gmail.com.</p>
@@ -246,18 +179,15 @@ conflict-of-law rules. Questions or notices: contact.daevonai@gmail.com.</p>
 <p>© 2026 Daevon Systems LLC. All rights reserved. Daevon is proprietary software provided
 under license; see Section 4.</p>
 </main>
-
-<footer class="site">
-  <div class="wrap">
-    <p>
-      <a href="/">Home</a>
-      <a href="/terms.html">Terms of Service</a>
-      <a href="/privacy.html">Privacy Policy</a>
-    </p>
-    <p>&copy; 2026 Daevon Systems LLC. Daevon is AI-assisted development software &mdash; not a human.
-    Intended for adults; not directed to children under 13.</p>
-  </div>
-</footer>
-
+<footer class="site"><div class="wrap">
+  <p>
+    <a href="/">Home</a>
+    <a href="/terms.html">Terms of Service</a>
+    <a href="/privacy.html">Privacy Policy</a>
+    <a href="/refunds.html">Refund Policy</a>
+  </p>
+  <p>&copy; 2026 Daevon Systems LLC. Daevon is AI-assisted development software &mdash; not a human.
+  Intended for adults; not directed to children under 13.</p>
+</div></footer>
 </body>
 </html>
