@@ -156,8 +156,7 @@ export default function Pricing() {
                 color: C.dim,
                 lineHeight: "1.6"
             }}>
-                Founder and Supporter rates apply to subscriptions and standalone purchases alike,
-                for as long as you stay subscribed.
+                Founder and Supporter rates apply to subscriptions and standalone purchases alike.
             </p>
 
             {/* ---- what happens at 1.0 ---- */}
