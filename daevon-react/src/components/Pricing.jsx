@@ -2,8 +2,7 @@ import Waitlist from "./Waitlist";
 
 /* --- Daevon website tokens (warm) ---
    bg #1A1510 · surface #222018 · border #2f261d
-   text #EEE0CC · dim #A09078 · accent #B84A28 / #D9714A
-   warn #fbbf24 — caution, not error. 9.77:1 on surface; 43deg hue vs accent's 14deg. */
+   text #EEE0CC · dim #A09078 · accent #B84A28 / #D9714A */
 
 const C = {
     surface: "#222018",
@@ -11,13 +10,10 @@ const C = {
     text: "#EEE0CC",
     dim: "#A09078",
     accent: "#B84A28",
-    accentText: "#D9714A",
-    warn: "#fbbf24",
-    warnBg: "rgba(251, 191, 36, 0.07)",
-    warnBorder: "rgba(251, 191, 36, 0.22)"
+    accentText: "#D9714A"
 };
 
-function Tier({ name, badge, rate, rateSmall, label, drop, dropLabel, note, noteBottom, featured }) {
+function Tier({ name, badge, rate, rateSmall, label, note, noteBottom, featured }) {
     return (
         <div style={{
             background: C.surface,
@@ -61,33 +57,12 @@ function Tier({ name, badge, rate, rateSmall, label, drop, dropLabel, note, note
                 {label}
             </div>
 
-            <hr style={{
-                border: 0,
-                borderTop: `1px solid ${C.border}`,
-                margin: "20px 0 16px",
-                width: "100%"
-            }} />
-
-            {drop && (
-                <>
-                    <div style={{ display: "flex", alignItems: "baseline", gap: "9px" }}>
-                        <span aria-hidden="true" style={{ color: C.warn, fontSize: "17px", lineHeight: 1 }}>
-                            &#8600;
-                        </span>
-                        <span style={{ fontSize: "23px", fontWeight: 600, color: C.warn }}>{drop}</span>
-                    </div>
-                    <div style={{ fontSize: "14px", color: C.dim, marginTop: "6px", lineHeight: "1.5" }}>
-                        {dropLabel}
-                    </div>
-                </>
-            )}
-
             {note && (
                 <div style={{
                     fontSize: "13px",
                     color: C.dim,
-                    marginTop: noteBottom ? "auto" : "14px",
-                    paddingTop: noteBottom ? "14px" : 0,
+                    marginTop: noteBottom ? "auto" : "20px",
+                    paddingTop: noteBottom ? "20px" : 0,
                     lineHeight: "1.6"
                 }}>{note}</div>
             )}
@@ -139,7 +114,7 @@ export default function Pricing() {
 
             {/* ---- tier panels ---- */}
             <h3 style={{ color: C.text, fontWeight: 400, fontSize: "22px", margin: "0 0 24px" }}>
-                Subscribe during the alpha, pay less forever
+                Subscribe during the alpha, pay less
             </h3>
 
             <div style={{
@@ -155,63 +130,35 @@ export default function Pricing() {
                     featured
                     name="Founder"
                     badge="100 slots"
-                    rate="50%"
-                    label="off, while you stay subscribed"
-                    drop="25%"
-                    dropLabel="if you ever cancel"
-                    note="You keep your Founder status and your slot. The rate never returns to 50%."
+                    rate="50% off"
+                    note="The first 100 people to subscribe. You get a permanent Founder number, #001 to #100 — it stays yours."
                 />
                 <Tier
                     name="Supporter"
                     badge="Early"
-                    rate="25%"
-                    label="off, while you stay subscribed"
-                    drop="10%"
-                    dropLabel="if you ever cancel"
-                    note="You keep your Supporter status. The rate never returns to 25%."
+                    rate="25% off"
+                    note="Everyone who subscribes during the alpha after the Founder slots are gone. No cap, no countdown."
                 />
                 <Tier
                     name="Standard"
                     rate="List price"
                     rateSmall
                     label="no discount applied"
-                    note="Cancel and resubscribe freely &mdash; nothing to lose."
+                    note="For subscriptions started after the alpha ends."
                     noteBottom
                 />
             </div>
 
             <p style={{
                 maxWidth: "1000px",
-                margin: "16px auto 0",
+                margin: "20px auto 0",
                 fontSize: "14px",
                 color: C.dim,
                 lineHeight: "1.6"
             }}>
-                Founder and Supporter rates apply to subscriptions and standalone purchases alike.
+                Founder and Supporter rates apply to subscriptions and standalone purchases alike,
+                for as long as you stay subscribed.
             </p>
-
-            {/* ---- the ratchet ---- */}
-            <div style={{
-                maxWidth: "1000px",
-                margin: "16px auto 0",
-                background: C.warnBg,
-                border: `1px solid ${C.warnBorder}`,
-                borderRadius: "12px",
-                padding: "20px 26px",
-                textAlign: "left"
-            }}>
-                <div style={{ fontSize: "15px", fontWeight: 600, color: C.warn, marginBottom: "6px" }}>
-                    The lower rate is permanent
-                </div>
-                <div style={{ fontSize: "14px", color: C.dim, lineHeight: "1.65" }}>
-                    Your discount drops once, the first time your subscription lapses &mdash; and it
-                    stays there for good.{" "}
-                    <strong style={{ color: C.text, fontWeight: 600 }}>
-                        Resubscribing does not restore it.
-                    </strong>{" "}
-                    Staying subscribed is the only way to keep your original rate.
-                </div>
-            </div>
 
             {/* ---- what happens at 1.0 ---- */}
             <div style={{
