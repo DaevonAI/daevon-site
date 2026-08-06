@@ -72,7 +72,8 @@ function Tier({ name, badge, rate, rateSmall, label, note, noteBottom, featured 
 
 export default function Pricing() {
     return (
-        <section style={{
+        <section id="pricing" style={{
+            scrollMarginTop: "20px",
             padding: "100px 20px",
             background: "#1A1510",
             color: "#ddd",
