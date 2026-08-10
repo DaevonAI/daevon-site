@@ -1,4 +1,4 @@
-import Waitlist from "./Waitlist";
+import Checkout from "./Checkout";
 
 /* --- Daevon website tokens (warm) ---
    bg #1A1510 · surface #222018 · border #2f261d
@@ -99,7 +99,7 @@ export default function Pricing() {
                 margin: "0 auto 72px"
             }}>
                 {[
-                    ["Free", "Unlimited chat, health scoring, and memory querying. No card, no trial clock.", null],
+                    ["Free", "Unlimited chat, health scoring, and memory querying. No payment required.", null],
                     ["$5", "Everything free, plus a full structural analysis of your project every 60 days.", "/month"]
                 ].map(([price, blurb, suffix]) => (
                     <div key={price} style={{ minWidth: "200px", maxWidth: "240px" }}>
@@ -192,15 +192,15 @@ export default function Pricing() {
 
             {/* ---- CTA ---- */}
             <div style={{ maxWidth: "620px", margin: "64px auto 0" }}>
-                <p style={{ margin: "0 0 6px", lineHeight: "1.7" }}>
-                    Daevon isn&rsquo;t on sale yet. Join the waitlist and we&rsquo;ll email you when
-                    it is.
+                <h3 style={{ color: C.text, fontWeight: 400, fontSize: "22px", margin: "0 0 12px" }}>
+                    Become a Founder
+                </h3>
+                <p style={{ margin: "0 0 24px", lineHeight: "1.7" }}>
+                    The first 100 people to subscribe get 50% off, a permanent Founder number, and
+                    that rate on everything we add later. Enter your email to subscribe &mdash; your
+                    Founder status is confirmed once your first payment goes through.
                 </p>
-                <p style={{ margin: "0 0 8px", lineHeight: "1.7", fontSize: "15px", color: C.dim }}>
-                    The waitlist isn&rsquo;t a Founder slot &mdash; Founders are the first 100 people
-                    to actually subscribe. We&rsquo;ll give you a heads-up before that starts.
-                </p>
-                <Waitlist />
+                <Checkout />
             </div>
         </section>
     );

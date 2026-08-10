@@ -16,6 +16,12 @@ export default function Footer() {
         }}>
             <div style={{ maxWidth: "720px", margin: "0 auto" }}>
 
+                <p style={{ margin: "0 0 14px" }}>
+                    <a href="/quickstart.html" style={linkStyle}>Quick Start</a>
+                    <a href="/howtouse.html" style={linkStyle}>How to Use Daevon</a>
+                    <a href="/bugreport.html" style={linkStyle}>Report a Bug</a>
+                </p>
+
                 <p style={{ margin: "0 0 20px" }}>
                     <a href="/terms.html" style={linkStyle}>Terms of Service</a>
                     <a href="/privacy.html" style={linkStyle}>Privacy Policy</a>
