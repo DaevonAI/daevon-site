@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Quick Start — Daevon</title>
+<meta name="description" content="Install and run Daevon Alpha for Unreal Engine 5.4.4 — the fastest path from download to your first project analysis." />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<style>
+  :root {
+    --bg:#1A1510; --panel:#131008; --ink:#d6cbbb; --ink-str:#EEE0CC;
+    --dim:#8b8073; --accent:#B84A28; --accent-2:#D9714A; --warn:#fbbf24;
+    --rule:#2f261d; --serif:Georgia,'Times New Roman',Times,serif;
+    --mono:ui-monospace,Consolas,'SF Mono',Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--serif);
+    font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px 96px;}
+  header.site{border-bottom:1px solid var(--rule);margin-bottom:56px;}
+  header.site .wrap{padding-top:28px;padding-bottom:28px;}
+  .brand{display:inline-block;letter-spacing:0.2em;font-size:11px;text-transform:uppercase;
+    color:var(--accent);text-decoration:none;}
+  .brand:hover{color:var(--ink-str);}
+  h1{font-size:clamp(34px,5vw,52px);font-weight:300;line-height:1.15;color:var(--ink-str);margin:0 0 8px;}
+  .meta{color:var(--dim);font-size:15px;margin:0 0 20px;}
+  .meta strong{color:var(--ink);font-weight:normal;}
+  h2{font-size:26px;font-weight:400;color:var(--ink-str);margin:56px 0 16px;line-height:1.3;
+    padding-top:16px;border-top:1px solid var(--rule);}
+  h3{font-size:20px;font-weight:400;color:var(--accent-2);margin:36px 0 12px;}
+  p,li{margin:0 0 16px;}
+  ul,ol{padding-left:22px;} li{margin-bottom:8px;}
+  strong{color:var(--ink-str);font-weight:600;}
+  a{color:var(--accent-2);word-break:break-word;} a:hover{color:var(--ink-str);}
+  code{background:var(--panel);border:1px solid var(--rule);border-radius:3px;padding:1px 6px;
+    font-family:var(--mono);font-size:0.86em;color:var(--ink-str);}
+  pre{background:var(--panel);border:1px solid var(--rule);border-radius:8px;padding:16px 18px;
+    overflow-x:auto;font-family:var(--mono);font-size:14px;line-height:1.5;color:var(--ink-str);
+    margin:0 0 20px;}
+  .callout{background:rgba(184,74,40,0.09);border:1px solid rgba(184,74,40,0.28);
+    border-radius:10px;padding:16px 20px;margin:24px 0;}
+  .callout.warn{background:rgba(251,191,36,0.07);border-color:rgba(251,191,36,0.28);}
+  .callout p{margin:0;}
+  .callout .tag{display:block;font-size:13px;letter-spacing:0.05em;text-transform:uppercase;
+    margin-bottom:6px;color:var(--accent-2);font-weight:600;}
+  .callout.warn .tag{color:var(--warn);}
+  .dl-btn{display:inline-block;background:var(--accent);color:#fff;padding:13px 26px;
+    border-radius:4px;text-decoration:none;font-size:16px;letter-spacing:0.03em;margin:8px 0 4px;}
+  .dl-btn:hover{color:#fff;opacity:0.92;}
+  .next{background:var(--panel);border:1px solid var(--rule);border-radius:10px;
+    padding:20px 22px;margin:40px 0 0;}
+  .next .tag{display:block;font-size:13px;letter-spacing:0.05em;text-transform:uppercase;
+    margin-bottom:6px;color:var(--accent-2);font-weight:600;}
+  .next p{margin:0;}
+  footer.site{border-top:1px solid var(--rule);margin-top:72px;color:#6f6559;font-size:14px;}
+  footer.site .wrap{padding-top:28px;padding-bottom:40px;}
+  footer.site a{color:var(--dim);text-decoration:none;margin-right:20px;}
+  footer.site a:hover{color:var(--accent);}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><a class="brand" href="/">Daevon</a></div></header>
+<main class="wrap">
+
+  <h1>Quick Start</h1>
+  <p class="meta"><strong>Daevon Alpha for Windows</strong> &nbsp;·&nbsp; Unreal Engine 5.4.4</p>
+  <p>This guide covers the fastest path from downloading Daevon to opening it inside Unreal Engine and
+  running your first project analysis.</p>
+
+  <div class="callout">
+    <span class="tag">Alpha notice</span>
+    <p>Daevon is currently alpha software. Features, compatibility, and interface details may change as
+    development continues.</p>
+  </div>
+
+  <h2>Requirements</h2>
+  <ul>
+    <li><strong>Windows</strong></li>
+    <li><strong>Unreal Engine 5.4.4</strong></li>
+    <li>An Unreal Engine project</li>
+    <li>Internet access for license activation and entitlement checks</li>
+  </ul>
+  <p>You do <strong>not</strong> need to install Python separately &mdash; Daevon includes its own local
+  runtime and required dependencies. You also do <strong>not</strong> need Visual Studio for normal
+  installation or use; the plugin ships with precompiled Windows binaries.</p>
+
+  <h2>Install Daevon</h2>
+  <p>Daevon has two components:</p>
+  <ul>
+    <li>The <strong>Unreal Engine plugin</strong>, which provides the Daevon interface inside the editor.</li>
+    <li>The <strong>Daevon local runtime</strong>, which performs project analysis and runs Daevon&rsquo;s
+      local systems.</li>
+  </ul>
+  <p>Both components must be placed correctly inside your Unreal project.</p>
+
+  <h3>1. Download Daevon</h3>
+  <p>Download <strong>Daevon Alpha v0.1.0 for Windows x64</strong> from the official DaevonAI GitHub
+  release:</p>
+  <p>
+    <a class="dl-btn" href="https://github.com/DaevonAI/Daevon-releases/releases/tag/v0.1.0-alpha.1"
+       target="_blank" rel="noreferrer">Open the release page</a>
+  </p>
+  <p>Under <strong>Assets</strong>, download <code>Daevon-Alpha-v0.1.0-Windows-x64.zip</code>.
+  Do <strong>not</strong> download either of GitHub&rsquo;s automatically generated <strong>Source
+  code</strong> archives &mdash; those contain repository source files, not the packaged application.</p>
+  <p>Extract the ZIP before continuing. Inside the package you will find:</p>
+  <pre>Plugins/
+Daevon/
+LICENSE.txt
+THIRD_PARTY_NOTICES.txt
+QuickStart.txt</pre>
+
+  <h3>2. Install the Daevon plugin</h3>
+  <p>How you install the plugin depends on whether your project already has a <code>Plugins</code> folder.
+  Open your project&rsquo;s root folder &mdash; the folder containing your <code>.uproject</code> file
+  &mdash; and check whether it already contains a folder named <code>Plugins</code>.</p>
+  <p><strong>If your project does NOT have a <code>Plugins</code> folder:</strong> copy the entire
+  <code>Plugins</code> folder from the Daevon package into your project&rsquo;s root folder. The Daevon
+  plugin will end up in the correct location automatically.</p>
+  <p><strong>If your project ALREADY has a <code>Plugins</code> folder:</strong> do not replace or
+  overwrite it. Instead, copy only the <code>Daevon</code> folder from the package&rsquo;s
+  <code>Plugins</code> folder into your project&rsquo;s existing <code>Plugins</code> folder.</p>
+  <p>Either way, the plugin must end up at <code>YourProject/Plugins/Daevon/</code>:</p>
+  <pre>YourProject/
+├─ Plugins/
+│  └─ Daevon/
+└─ YourProject.uproject</pre>
+  <div class="callout">
+    <span class="tag">Check the folder path</span>
+    <p>If you accidentally end up with <code>YourProject/Plugins/Plugins/Daevon/</code>, move the
+    <code>Daevon</code> folder up one level so it sits directly inside your project&rsquo;s
+    <code>Plugins</code> folder.</p>
+  </div>
+
+  <h3>3. Install the Daevon runtime</h3>
+  <p>Return to the downloaded package. Copy the separate <code>Daevon</code> runtime folder &mdash; the
+  one containing <code>Daevon.exe</code> &mdash; into the <strong>root</strong> of your Unreal project,
+  next to your <code>.uproject</code> file. When finished, <code>Daevon.exe</code> must be at
+  <code>YourProject/Daevon/Daevon.exe</code>.</p>
+  <pre>YourProject/
+├─ Daevon/
+│  ├─ Daevon.exe
+│  └─ _internal/
+│
+├─ Plugins/
+│  └─ Daevon/
+│
+└─ YourProject.uproject</pre>
+  <div class="callout">
+    <span class="tag">Runtime location matters</span>
+    <p>The plugin looks specifically for <code>YourProject/Daevon/Daevon.exe</code>. If the runtime is
+    placed elsewhere, Daevon will not be able to start it.</p>
+  </div>
+
+  <h3>4. Open your Unreal project</h3>
+  <p>Open your project using <strong>Unreal Engine 5.4.4</strong>. Unreal may show a notice that a new
+  plugin is available. You should <strong>not</strong> be asked to compile or rebuild Daevon &mdash;
+  the alpha plugin ships with precompiled Windows binaries.</p>
+
+  <h3>5. Enable Daevon</h3>
+  <p>If the plugin isn&rsquo;t already enabled: open <strong>Edit &rarr; Plugins</strong>, search for
+  <strong>Daevon</strong>, make sure it&rsquo;s enabled, and restart Unreal Engine if prompted.</p>
+
+  <h2>Launch Daevon</h2>
+  <p>Daevon currently launches from an Editor Utility Widget included with the plugin.</p>
+
+  <h3>6. Show plugin content</h3>
+  <p>In Unreal Engine, open the <strong>Content Browser</strong>, open its <strong>Settings</strong>
+  (or filter) menu, and enable <strong>Show Plugin Content</strong>. Plugin content is hidden by default,
+  so the Daevon interface won&rsquo;t appear in the Content Browser until this is enabled.</p>
+
+  <h3>7. Find the Daevon interface</h3>
+  <p>In the Content Browser&rsquo;s sources panel, navigate to <strong>Daevon Content &rarr; Editor</strong>
+  and locate <code>EUW_Daevon</code> &mdash; the Editor Utility Widget used to open Daevon.</p>
+
+  <h3>8. Open Daevon</h3>
+  <p>Right-click <code>EUW_Daevon</code> and choose <strong>Run Utility Widget</strong>. The Daevon window
+  opens, with Chat, <strong>Refresh Daevon</strong>, <strong>Analyze Project</strong>, connection status,
+  and license status. You can dock it anywhere; if you close it, run the widget again to reopen.</p>
+
+  <div class="callout warn">
+    <span class="tag">Windows SmartScreen notice</span>
+    <p>The first time Daevon&rsquo;s local runtime starts, Windows may display
+    <strong>&ldquo;Windows protected your PC.&rdquo;</strong> Daevon is a new alpha release and may not
+    yet have an established SmartScreen reputation. If you downloaded Daevon from the official DaevonAI
+    release linked above, continue by selecting <strong>More info &rarr; Run anyway</strong>. This warning
+    does not necessarily mean Windows detected malware; it can appear for newly released applications.
+    Do <strong>not</strong> disable Windows Security or SmartScreen to run Daevon &mdash; and if your copy
+    came from anywhere other than the official DaevonAI release page, do not run it.</p>
+  </div>
+
+  <h2>Use Daevon</h2>
+
+  <h3>1. Connect to Daevon</h3>
+  <p>Before activating a license or running analysis, Daevon&rsquo;s local runtime must be running &mdash;
+  you do <strong>not</strong> need to launch <code>Daevon.exe</code> manually. To connect, either send a
+  message through Daevon chat or click <strong>Refresh Daevon</strong> in the upper-left of the panel.
+  Daevon starts its runtime automatically; when ready, the status shows <strong>Connected</strong>.</p>
+  <div class="callout">
+    <span class="tag">Important</span>
+    <p>Connect to Daevon <em>before</em> attempting license activation. If the local runtime isn&rsquo;t
+    running, activation cannot complete &mdash; Daevon isn&rsquo;t yet available locally to process the
+    request.</p>
+  </div>
+
+  <h3>2. Activate your license</h3>
+  <p>Activation is only required for paid features. Once Daevon shows <strong>Connected</strong>, open the
+  dropdown in the upper-left, open the license activation screen, enter the activation token from your
+  purchase, submit it, and wait for confirmation.</p>
+  <p>Your token begins with <code>sub_v1_</code> and is shown after purchase and emailed to you. Keep it
+  private &mdash; it&rsquo;s a credential, like a password. During the alpha, activation is tied to one
+  machine; to move Daevon to another machine, contact support.</p>
+  <p><strong>Using Daevon without activation:</strong> you don&rsquo;t need a token for the free features.
+  With an inactive license you can chat, analyze your project, and view your Project Health score. An
+  active license unlocks the detailed findings behind that score.</p>
+
+  <h3>3. Analyze your project</h3>
+  <p>Click <strong>Analyze Project</strong> near the top of the panel. Daevon scans the current project,
+  builds a structural dependency graph, and evaluates supported relationships and architectural concerns.
+  Daevon does <strong>not</strong> modify your project &mdash; it analyzes, reports, and explains, leaving
+  changes under your control.</p>
+  <p><strong>Project Health</strong> is available without a subscription &mdash; a high-level view of the
+  project&rsquo;s structural health. <strong>Findings</strong> (the specific issues behind the score)
+  require an active license.</p>
+
+  <div class="next">
+    <span class="tag">Next</span>
+    <p>Once Daevon shows <strong>Connected</strong> and your first analysis completes, setup is done. For a
+    deeper explanation of Project Health, Findings, the analysis rules, commands, and the Project
+    Knowledge Core, continue to <a href="/howtouse.html">How to Use Daevon</a>.</p>
+  </div>
+
+  <h2>Getting help</h2>
+  <p>If you lose your activation token, use the token-resend option or contact
+  <a href="mailto:contact.daevonai@gmail.com">contact.daevonai@gmail.com</a>. Daevon is alpha software
+  providing AI-assisted development guidance &mdash; you remain responsible for project decisions and
+  changes. Keep your project backed up and use version control when possible.</p>
+
+  <h2>Known alpha limitations</h2>
+  <ul>
+    <li>Connect to Daevon before attempting license activation.</li>
+    <li>Chat may occasionally display additional internal text.</li>
+    <li>The chat input may occasionally lose cursor focus after sending a message.</li>
+  </ul>
+  <p>These known interface issues do not prevent project analysis from running.</p>
+
+</main>
+<footer class="site"><div class="wrap">
+  <p>
+    <a href="/">Home</a>
+    <a href="/quickstart.html">Quick Start</a>
+    <a href="/howtouse.html">How to Use</a>
+    <a href="/terms.html">Terms of Service</a>
+    <a href="/privacy.html">Privacy Policy</a>
+    <a href="/refunds.html">Refund Policy</a>
+  </p>
+  <p>&copy; 2026 Daevon Systems LLC. Daevon is AI-assisted development software &mdash; not a human.
+  Intended for adults; not directed to children under 13.</p>
+</div></footer>
+</body>
+</html>

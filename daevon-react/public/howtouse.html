@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How to Use Daevon — Daevon</title>
+<meta name="description" content="Using Daevon after installation — Project Health, Findings, the structural rules Daevon checks, commands, and the Project Knowledge Core." />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<style>
+  :root {
+    --bg:#1A1510; --panel:#131008; --ink:#d6cbbb; --ink-str:#EEE0CC;
+    --dim:#8b8073; --accent:#B84A28; --accent-2:#D9714A; --warn:#fbbf24;
+    --rule:#2f261d; --serif:Georgia,'Times New Roman',Times,serif;
+    --mono:ui-monospace,Consolas,'SF Mono',Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--serif);
+    font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px 96px;}
+  header.site{border-bottom:1px solid var(--rule);margin-bottom:56px;}
+  header.site .wrap{padding-top:28px;padding-bottom:28px;}
+  .brand{display:inline-block;letter-spacing:0.2em;font-size:11px;text-transform:uppercase;
+    color:var(--accent);text-decoration:none;}
+  .brand:hover{color:var(--ink-str);}
+  h1{font-size:clamp(34px,5vw,52px);font-weight:300;line-height:1.15;color:var(--ink-str);margin:0 0 8px;}
+  .meta{color:var(--dim);font-size:15px;margin:0 0 20px;}
+  .meta strong{color:var(--ink);font-weight:normal;}
+  h2{font-size:26px;font-weight:400;color:var(--ink-str);margin:56px 0 16px;line-height:1.3;
+    padding-top:16px;border-top:1px solid var(--rule);}
+  h3{font-size:20px;font-weight:400;color:var(--accent-2);margin:36px 0 12px;}
+  h4{font-size:17px;font-weight:600;color:var(--ink-str);margin:24px 0 10px;}
+  p,li{margin:0 0 16px;}
+  ul,ol{padding-left:22px;} li{margin-bottom:8px;}
+  strong{color:var(--ink-str);font-weight:600;}
+  em{color:var(--ink);}
+  a{color:var(--accent-2);word-break:break-word;} a:hover{color:var(--ink-str);}
+  code{background:var(--panel);border:1px solid var(--rule);border-radius:3px;padding:1px 6px;
+    font-family:var(--mono);font-size:0.86em;color:var(--ink-str);}
+  pre{background:var(--panel);border:1px solid var(--rule);border-radius:8px;padding:16px 18px;
+    overflow-x:auto;font-family:var(--mono);font-size:14px;line-height:1.5;color:var(--ink-str);
+    margin:0 0 20px;}
+  .callout{background:rgba(184,74,40,0.09);border:1px solid rgba(184,74,40,0.28);
+    border-radius:10px;padding:16px 20px;margin:24px 0;}
+  .callout.warn{background:rgba(251,191,36,0.07);border-color:rgba(251,191,36,0.28);}
+  .callout p{margin:0;}
+  .callout .tag{display:block;font-size:13px;letter-spacing:0.05em;text-transform:uppercase;
+    margin-bottom:6px;color:var(--accent-2);font-weight:600;}
+  .callout.warn .tag{color:var(--warn);}
+  .lead{font-size:19px;color:var(--ink-str);font-style:italic;margin:0 0 24px;}
+  footer.site{border-top:1px solid var(--rule);margin-top:72px;color:#6f6559;font-size:14px;}
+  footer.site .wrap{padding-top:28px;padding-bottom:40px;}
+  footer.site a{color:var(--dim);text-decoration:none;margin-right:20px;}
+  footer.site a:hover{color:var(--accent);}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><a class="brand" href="/">Daevon</a></div></header>
+<main class="wrap">
+
+  <h1>How to Use Daevon</h1>
+  <p class="meta"><strong>Daevon Alpha for Windows</strong> &nbsp;·&nbsp; Unreal Engine 5.4.4</p>
+  <p>This guide covers using Daevon after installation. If you haven&rsquo;t installed, launched, and
+  connected Daevon yet, start with the <a href="/quickstart.html">Quick Start</a>.</p>
+
+  <div class="callout">
+    <span class="tag">Alpha notice</span>
+    <p>Daevon is currently alpha software. Features, commands, compatibility, and interface details may
+    change as development continues.</p>
+  </div>
+
+  <h2>What Daevon does</h2>
+  <p>Daevon is a structural analysis tool for Unreal Engine projects. It reads your project, maps
+  relationships between modules and code, and looks for places where the project&rsquo;s actual structure
+  no longer matches what it declares.</p>
+  <p class="lead">Daevon helps you find where your project stopped matching what it says it is.</p>
+  <p>In the current alpha, Daevon is observation-focused: it analyzes your project, reports what it finds,
+  explains why an issue matters, and recommends what you can do about it. Daevon does <strong>not</strong>
+  edit your code or project files for you &mdash; you decide what changes to make. It&rsquo;s also not a
+  general-purpose chatbot or a substitute for your own development judgment; its primary role is helping
+  you understand the structure and health of your Unreal project.</p>
+
+  <h2>Main features</h2>
+
+  <h3>Project analysis</h3>
+  <p>Click <strong>Analyze Project</strong> near the top of the Daevon panel. Daevon scans the open project
+  and produces a structural analysis report. Depending on your license status, the report can include the
+  Project Health score, project statistics, findings, <strong>Why This Matters</strong> explanations, and
+  <strong>Recommended Fix</strong> guidance.</p>
+
+  <h4>Project Health</h4>
+  <p>The Project Health score ranges from <strong>0 to 100</strong>. A higher score indicates fewer
+  structural issues detected by Daevon&rsquo;s current rules; findings reduce the score according to their
+  severity. The score is a quick summary &mdash; the findings contain the actionable detail. Project Health
+  is available <strong>without</strong> an active subscription.</p>
+
+  <h4>Project statistics</h4>
+  <p>Daevon may also show a structural snapshot of the project, including modules, nodes, edges
+  (detected dependency relationships), C++ files, header files, and finding count. These give a quick view
+  of the size and structure Daevon detected during analysis.</p>
+
+  <h4>Findings</h4>
+  <p>Findings are the specific structural issues Daevon identifies. A finding may include severity, the
+  affected module or relationship, evidence, <strong>Why This Matters</strong>, and a
+  <strong>Recommended Fix</strong>. In the current alpha, because Daevon&rsquo;s two active structural rules
+  are of comparable importance, findings are typically labeled <strong>Warning</strong>; additional severity
+  levels will appear as more rules are added. Detailed findings require an active Daevon license &mdash;
+  without activation you can still run an analysis and view the Project Health score, and Daevon will prompt
+  you to activate or subscribe to see the detail behind it.</p>
+
+  <h3>Daevon chat</h3>
+  <p>The chat area lets you talk to Daevon while you work. It&rsquo;s a general, lightweight assistant &mdash;
+  helpful for talking through your project or a finding &mdash; but it isn&rsquo;t specialized deep Unreal
+  expertise, and it isn&rsquo;t where Daevon&rsquo;s real capability lives. Daevon&rsquo;s core value is in
+  its project analysis and its commands. Treat chat as a helper on the side; treat <strong>Analyze
+  Project</strong> and the commands as the actual tools.</p>
+
+  <h2>What Daevon looks for</h2>
+  <p>In the current alpha, Daevon&rsquo;s automated analysis focuses primarily on Unreal Engine module
+  dependency correctness. These problems are troublesome because a project may appear to work during
+  development while still containing dependency declarations that are incomplete or incorrect. The alpha
+  includes two main structural checks.</p>
+
+  <h3>1. Missing module dependency</h3>
+  <p>Internal rule: <code>UE_MODULE_DEPENDENCY_MISSING</code></p>
+  <p>This occurs when one module uses code from another module without formally declaring that dependency
+  &mdash; for example, <code>DaevonTestModule</code> using <code>DaevonHost</code> without declaring it. A
+  module may compile in one environment while relying on a relationship Unreal&rsquo;s build system was
+  never told about.</p>
+  <h4>Why this matters</h4>
+  <p>An undeclared dependency can create fragile builds. The project may work locally but fail on another
+  developer&rsquo;s machine, after a clean rebuild, during packaging, or in another build configuration.</p>
+  <h4>Typical fix</h4>
+  <p>Open the affected module&rsquo;s <code>Build.cs</code> file and declare the required module in the
+  appropriate dependency list &mdash; <code>PublicDependencyModuleNames</code> or
+  <code>PrivateDependencyModuleNames</code>. Use the evidence in the finding to determine which modules are
+  involved.</p>
+
+  <h3>2. Module boundary violation</h3>
+  <p>Internal rule: <code>UE_MODULE_BOUNDARY_VIOLATION</code></p>
+  <p>This occurs when a module includes a header from another module without declaring the required
+  dependency &mdash; for example, <code>ModuleA</code> including <code>ModuleB</code> without declaring it.
+  The code crosses an Unreal module boundary, but the build configuration doesn&rsquo;t declare that
+  relationship.</p>
+  <h4>Why this matters</h4>
+  <p>This creates the same class of structural risk as a missing dependency: the source relies on a
+  relationship Unreal Build Tool doesn&rsquo;t know about, which can lead to inconsistent behavior across
+  machines, clean builds, or packaged builds.</p>
+  <h4>Typical fix</h4>
+  <p>Declare the required dependency in the including module&rsquo;s <code>Build.cs</code> file.</p>
+
+  <p>These checks target the classic &ldquo;works on my machine&rdquo; category of structural problems:
+  code that appears functional in one environment but becomes unreliable when the project is rebuilt,
+  moved, shared, or packaged. Additional structural rules are planned for later versions.</p>
+
+  <h2>Using Daevon commands</h2>
+  <p>Daevon also supports explicit commands entered through the chat input. Commands begin with
+  <code>!</code>. You don&rsquo;t need these for basic project analysis &mdash; they provide direct access
+  to additional systems such as project memory, facts, reasoning information, project selection, and the
+  Project Knowledge Core.</p>
+  <div class="callout">
+    <span class="tag">Alpha note</span>
+    <p>Some of these systems are more advanced than the standard Analyze Project workflow. In the current
+    alpha, explicit <code>!</code> commands are the most reliable way to access them. Integrating these
+    features into Daevon&rsquo;s conversational chat workflow is planned for a future update.</p>
+  </div>
+
+  <h3>Project memory</h3>
+  <p>Project Memory lets Daevon retain approved information about a project across sessions.</p>
+  <pre>!memory list                  show memory items and their state
+!memory review &lt;id&gt;           review a proposed memory item
+!memory approve &lt;id&gt;          approve and commit a proposed item
+!memory reject &lt;id&gt; &lt;reason&gt;  reject a proposed item, with a reason
+!memory edit &lt;id&gt; &lt;value&gt;     edit a memory item
+!memory show &lt;id&gt;             display a specific memory item</pre>
+
+  <h3>Project facts</h3>
+  <p>Facts let you explicitly store information Daevon should treat as known about the project.</p>
+  <pre>!fact list                            list stored facts
+!fact set &lt;fact_id&gt; &lt;value&gt;           create or update a fact
+!fact remove &lt;fact_id&gt;                remove a fact
+!fact set project &lt;project_id&gt; &lt;fact_id&gt; &lt;value&gt;   project-scoped form</pre>
+
+  <h3>Reasoning and evidence</h3>
+  <pre>!reason.summary    summary of Daevon's reasoning for the current conclusion
+!reason.evidence   supporting evidence</pre>
+
+  <h3>Project selection</h3>
+  <pre>!project.select &lt;project&gt;   select a project as Daevon's active project
+!project.current            show the currently selected project</pre>
+  <p>If the named project exists, Daevon switches to it; if not, Daevon creates the corresponding project
+  entry and selects it.</p>
+
+  <h4>Experimental conversational project setup</h4>
+  <p>Daevon also has an experimental conversational project-creation flow &mdash; you can tell it
+  &ldquo;create a new project&rdquo; or &ldquo;start a new project,&rdquo; and it may guide you through
+  choosing an existing or new Unreal project and its location. This workflow is experimental in the alpha
+  and may not always behave as expected. For the more reliable flow, use
+  <code>!project.select &lt;project&gt;</code>.</p>
+
+  <h3>Project Knowledge Core</h3>
+  <p>The Project Knowledge Core (PKC) provides a structured representation of project knowledge.</p>
+  <pre>!pkc create
+!pkc tree
+!pkc show
+!pkc link</pre>
+  <div class="callout">
+    <span class="tag">Note on PKC availability</span>
+    <p>During the alpha, PKC commands are available in the standard command flow so early users can test
+    them. In a future release (planned for V1), PKC is expected to move behind a paid tier. Using it now is
+    encouraged &mdash; your usage helps test and refine it before that change.</p>
+  </div>
+
+  <h3>Getting command help</h3>
+  <p>If you enter a command without its required arguments, Daevon can display usage information &mdash; for
+  example, <code>!memory</code> shows the expected syntax for the memory command. Additional advanced
+  commands exist beyond those listed here; the above cover the primary user-facing systems relevant to the
+  alpha.</p>
+
+  <h2>Recommended workflow</h2>
+  <ol>
+    <li>Run <strong>Analyze Project</strong> to establish the project&rsquo;s current structural state.</li>
+    <li>Review the Project Health score.</li>
+    <li>Read the findings, starting with the highest-severity issues.</li>
+    <li>Review <strong>Why This Matters</strong> to understand each finding&rsquo;s consequence.</li>
+    <li>Review the <strong>Recommended Fix</strong>.</li>
+    <li>Make the appropriate project or code change yourself.</li>
+    <li>Run <strong>Analyze Project</strong> again after making the change.</li>
+    <li>Confirm the finding is resolved and review the updated Project Health score.</li>
+    <li>Use Daevon chat if you want additional context before deciding how to proceed.</li>
+  </ol>
+  <p>For the current module-dependency findings, resolving an issue often involves correcting the affected
+  module&rsquo;s <code>Build.cs</code>. Analysis itself does not modify your project, so you can rerun it
+  whenever you want an updated structural assessment.</p>
+
+  <h2>Understanding your Project Health score</h2>
+  <p>The Project Health score gives a repeatable high-level signal of the project&rsquo;s structural
+  condition. As a general guide, a score near 100 means Daevon detected few or no issues covered by its
+  current rules; lower scores mean more issues, more severe issues, or both.</p>
+  <p>The score is <strong>deterministic</strong>: given the same project state and the same analysis rules,
+  Daevon produces the same score. Rerunning an unchanged project shouldn&rsquo;t randomly change it. When
+  you correct a finding and the score improves, the change reflects the updated structural analysis rather
+  than a subjective AI judgment.</p>
+  <h4>Don&rsquo;t judge the project by the number alone</h4>
+  <p>Project Health is a summary, not a complete assessment of project quality. A high score doesn&rsquo;t
+  mean every possible issue has been checked, and a lower score doesn&rsquo;t automatically mean the project
+  is badly designed &mdash; the score reflects the problems covered by Daevon&rsquo;s current rules. For
+  actionable information, read the findings behind the score.</p>
+
+  <h2>Getting help</h2>
+  <p>If you lose your activation token, use the token-resend option or contact
+  <a href="mailto:contact.daevonai@gmail.com">contact.daevonai@gmail.com</a>. Daevon is alpha software
+  providing AI-assisted development and structural guidance. You remain responsible for project decisions
+  and changes. Keep your project backed up and use version control whenever possible.</p>
+
+</main>
+<footer class="site"><div class="wrap">
+  <p>
+    <a href="/">Home</a>
+    <a href="/quickstart.html">Quick Start</a>
+    <a href="/howtouse.html">How to Use</a>
+    <a href="/terms.html">Terms of Service</a>
+    <a href="/privacy.html">Privacy Policy</a>
+    <a href="/refunds.html">Refund Policy</a>
+  </p>
+  <p>&copy; 2026 Daevon Systems LLC. Daevon is AI-assisted development software &mdash; not a human.
+  Intended for adults; not directed to children under 13.</p>
+</div></footer>
+</body>
+</html>

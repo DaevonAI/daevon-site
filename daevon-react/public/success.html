@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Payment complete — Daevon</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<style>
+  :root{
+    --bg:#1A1510; --surface:#222018; --border:#2f261d;
+    --ink:#d6cbbb; --ink-str:#EEE0CC; --dim:#A09078;
+    --accent:#B84A28; --accent-2:#D9714A; --warn:#fbbf24;
+    --serif:Georgia,'Times New Roman',Times,serif;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; min-height:100vh; background:var(--bg); color:var(--ink);
+    font-family:var(--serif); line-height:1.7;
+    display:flex; align-items:center; justify-content:center; padding:32px 20px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .card{
+    max-width:560px; width:100%; background:var(--surface);
+    border:1px solid var(--border); border-radius:14px; padding:44px 40px;
+    text-align:center;
+  }
+  .brand{
+    letter-spacing:0.2em; font-size:11px; text-transform:uppercase;
+    color:var(--accent); text-decoration:none; display:inline-block; margin-bottom:28px;
+  }
+  h1{ font-size:30px; font-weight:400; color:var(--ink-str); margin:0 0 14px; line-height:1.25; }
+  p{ margin:0 0 18px; }
+  .lead{ color:var(--ink); }
+  .accent{ color:var(--accent-2); }
+  .dim{ color:var(--dim); font-size:15px; }
+  a{ color:var(--accent-2); }
+  a:hover{ color:var(--ink-str); }
+
+  .divider{ border:0; border-top:1px solid var(--border); margin:32px 0 28px; }
+
+  .resend-row{ display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-top:6px; }
+  input[type=email]{
+    padding:13px 15px; width:280px; max-width:100%;
+    border:1px solid var(--border); background:#0d0b07; color:var(--ink-str);
+    border-radius:4px; font-size:15px; outline:none; font-family:var(--serif);
+  }
+  button{
+    padding:13px 22px; border:none; border-radius:4px; cursor:pointer;
+    background:var(--accent); color:#fff; font-size:15px; letter-spacing:0.03em;
+    font-family:var(--serif);
+  }
+  button:disabled{ opacity:0.6; cursor:default; }
+  .msg{ margin-top:14px; font-size:14px; min-height:20px; }
+  .home{ display:inline-block; margin-top:28px; font-size:14px; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <a class="brand" href="/">Daevon</a>
+
+    <h1>Payment complete &mdash; welcome aboard.</h1>
+
+    <p class="lead">
+      Thank you for subscribing to Daevon.
+      <span class="accent">Your activation token has been emailed to you</span>
+      at the address you used at checkout.
+    </p>
+
+    <p class="dim">
+      Open that email and follow the link to view your token and activate Daevon in the
+      Unreal Engine plugin. The token is what links your subscription to your install &mdash;
+      keep it somewhere safe.
+    </p>
+
+    <hr class="divider" />
+
+    <p class="dim" style="margin-bottom:12px;">
+      Didn&rsquo;t get the email? Check your spam folder, then resend it here:
+    </p>
+
+    <div class="resend-row">
+      <input type="email" id="resend-email" placeholder="your@email.com" aria-label="Email address" />
+      <button id="resend-btn" onclick="resend()">Resend email</button>
+    </div>
+    <div class="msg dim" id="resend-msg"></div>
+
+    <p class="dim" style="margin-top:20px;">
+      Still stuck? Email
+      <a href="mailto:contact.daevonai@gmail.com">contact.daevonai@gmail.com</a>
+      and we&rsquo;ll sort it out.
+    </p>
+
+    <a class="home" href="/">&larr; Back to daevonai.com</a>
+  </div>
+
+  <script>
+    async function resend() {
+      var btn = document.getElementById('resend-btn');
+      var input = document.getElementById('resend-email');
+      var msg = document.getElementById('resend-msg');
+      var email = (input.value || '').trim();
+
+      var valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      if (!valid) {
+        msg.style.color = '#fbbf24';
+        msg.textContent = 'Please enter a valid email address.';
+        return;
+      }
+
+      btn.disabled = true;
+      input.disabled = true;
+      msg.style.color = '#A09078';
+      msg.textContent = 'Sending\u2026';
+
+      try {
+        await fetch('https://daevon-hosted.onrender.com/resend-activation', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email })
+        });
+        // endpoint is enumeration-safe: always neutral success, so we always show the same message
+        msg.style.color = '#A09078';
+        msg.textContent = "If that address has a subscription, we've sent the activation email. Check your inbox and spam.";
+      } catch (e) {
+        msg.style.color = '#fbbf24';
+        msg.textContent = "Couldn't reach the server. Please email contact.daevonai@gmail.com and we'll help.";
+        btn.disabled = false;
+        input.disabled = false;
+      }
+    }
+  </script>
+</body>
+</html>

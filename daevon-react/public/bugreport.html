@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Report a bug — Daevon</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<style>
+  :root{
+    --bg:#1A1510; --surface:#222018; --border:#2f261d;
+    --ink:#d6cbbb; --ink-str:#EEE0CC; --dim:#A09078;
+    --accent:#B84A28; --accent-2:#D9714A; --warn:#fbbf24;
+    --serif:Georgia,'Times New Roman',Times,serif;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; min-height:100vh; background:var(--bg); color:var(--ink);
+    font-family:var(--serif); line-height:1.7; padding:80px 20px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{ max-width:640px; margin:0 auto; }
+  .brand{
+    display:block; text-align:center; letter-spacing:0.2em; font-size:11px;
+    text-transform:uppercase; color:var(--accent); text-decoration:none; margin-bottom:32px;
+  }
+  h1{ text-align:center; color:var(--ink-str); font-weight:300; font-size:clamp(32px,5vw,48px); margin:0 0 16px; }
+  .lead{ text-align:center; margin:0 0 8px; }
+  a{ color:var(--accent-2); }
+  a:hover{ color:var(--ink-str); }
+
+  .discord{
+    background:rgba(184,74,40,0.10); border:1px solid rgba(184,74,40,0.30);
+    border-radius:10px; padding:18px 22px; margin:28px 0 8px;
+  }
+  .discord p{ margin:0; font-size:15px; line-height:1.65; }
+
+  form{
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:12px; padding:28px 26px; margin-top:24px;
+  }
+  label{ display:block; font-size:14px; color:var(--dim); margin-top:20px; }
+  label:first-of-type{ margin-top:0; }
+  .req{ color:var(--accent-2); }
+  .hint{ color:#6f6559; }
+  input, textarea{
+    width:100%; padding:13px 15px; margin-top:6px;
+    background:#0d0b07; border:1px solid var(--border); border-radius:4px;
+    color:var(--ink-str); font-size:15px; font-family:var(--serif); outline:none;
+  }
+  input:focus, textarea:focus{ border-color:var(--accent); }
+  textarea{ resize:vertical; }
+  button{
+    margin-top:26px; width:100%; padding:15px; border:none; border-radius:4px;
+    background:var(--accent); color:#fff; font-size:16px; letter-spacing:0.04em;
+    font-family:var(--serif); cursor:pointer;
+  }
+  button:disabled{ opacity:0.6; cursor:default; }
+  .msg{ margin-top:16px; font-size:14px; min-height:18px; }
+  .footer-note{ text-align:center; margin-top:24px; font-size:13px; color:var(--dim); }
+  .home{ display:inline-block; margin-top:8px; font-size:14px; color:var(--dim); }
+
+  .thanks{
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:12px; padding:40px 32px; margin-top:24px; text-align:center;
+  }
+  .thanks h2{ color:var(--ink-str); font-weight:400; font-size:22px; margin:0 0 12px; }
+  .hidden{ display:none; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="brand" href="/">Daevon</a>
+    <h1>Report a bug</h1>
+    <p class="lead">
+      Daevon is in alpha, so things will break. Telling us what happened is genuinely useful
+      &mdash; thank you for taking the time.
+    </p>
+
+    <div class="discord">
+      <p>
+        <strong style="color:var(--ink-str)">Have a screenshot or video?</strong>
+        The form below is for the written details. For images or clips, drop them in our
+        <a href="https://discord.gg/CwX5aby2wv" target="_blank" rel="noreferrer">Discord
+        bug-report thread</a> &mdash; include the same email you use below so we can match them up.
+      </p>
+    </div>
+
+    <!-- Static HTML form: Netlify detects this at build time. No React workaround needed.
+         data-netlify-honeypot adds a hidden bot trap ('bot-field'). -->
+    <form id="bug-form" name="bug-report" method="POST"
+          data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="bug-report" />
+      <p class="hidden">
+        <label>Don&rsquo;t fill this out: <input name="bot-field" /></label>
+      </p>
+
+      <label>Your email <span class="req">*</span>
+        <input type="email" name="email" required placeholder="your@email.com" />
+      </label>
+
+      <label>What happened? <span class="req">*</span>
+        <textarea name="what_happened" required rows="4"
+          placeholder="Describe the bug — what went wrong?"></textarea>
+      </label>
+
+      <label>Steps to reproduce
+        <textarea name="steps" rows="3" placeholder="1. …&#10;2. …&#10;3. …"></textarea>
+      </label>
+
+      <label>Daevon version <span class="hint">(if you know it)</span>
+        <input type="text" name="daevon_version" placeholder="e.g. alpha 0.1" />
+      </label>
+
+      <label>Operating system &amp; engine
+        <input type="text" name="os" placeholder="e.g. Windows 11, Unreal 5.4" />
+      </label>
+
+      <button type="submit" id="submit-btn">Send bug report</button>
+      <div class="msg" id="msg"></div>
+    </form>
+
+    <div class="thanks hidden" id="thanks">
+      <h2>Got it &mdash; thank you.</h2>
+      <p>
+        Your report is on its way to us. If you have images or a video to add, drop them in the
+        <a href="https://discord.gg/CwX5aby2wv" target="_blank" rel="noreferrer">Discord
+        bug-report thread</a>.
+      </p>
+      <a class="home" href="/">&larr; Back to daevonai.com</a>
+    </div>
+
+    <p class="footer-note">
+      Prefer email? Write to
+      <a href="mailto:contact.daevonai@gmail.com">contact.daevonai@gmail.com</a>.
+      <br /><a class="home" href="/">&larr; Back to daevonai.com</a>
+    </p>
+  </div>
+
+  <script>
+    var form = document.getElementById('bug-form');
+    var btn  = document.getElementById('submit-btn');
+    var msg  = document.getElementById('msg');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      btn.disabled = true;
+      msg.style.color = 'var(--dim)';
+      msg.textContent = 'Sending\u2026';
+
+      var data = new URLSearchParams(new FormData(form)).toString();
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: data
+      })
+      .then(function (res) {
+        if (!res.ok) throw new Error(res.status);
+        form.classList.add('hidden');
+        document.getElementById('thanks').classList.remove('hidden');
+      })
+      .catch(function () {
+        msg.style.color = 'var(--warn)';
+        msg.innerHTML = "Something went wrong sending that. Please email " +
+          "<a href='mailto:contact.daevonai@gmail.com' style='color:var(--warn)'>" +
+          "contact.daevonai@gmail.com</a> instead.";
+        btn.disabled = false;
+      });
+    });
+  </script>
+</body>
+</html>
